@@ -1,0 +1,10 @@
+C:\my-projects\airline-notification-svc\src\main\java\com\projects\airline_notification_svc\AirlineNotificationSvcApplication.java
+C:\my-projects\airline-notification-svc\src\main\java\com\projects\airline_notification_svc\config\KafkaConsumerConfig.java
+C:\my-projects\airline-notification-svc\src\main\java\com\projects\airline_notification_svc\consumer\KafkaConsumer.java
+C:\my-projects\airline-notification-svc\src\main\java\com\projects\airline_notification_svc\model\request\GotifyRequest.java
+C:\my-projects\airline-notification-svc\src\main\java\com\projects\airline_notification_svc\model\request\NotificationMessage.java
+C:\my-projects\airline-notification-svc\src\main\java\com\projects\airline_notification_svc\service\EmailService.java
+C:\my-projects\airline-notification-svc\src\main\java\com\projects\airline_notification_svc\service\impl\EmailServiceImpl.java
+C:\my-projects\airline-notification-svc\src\main\java\com\projects\airline_notification_svc\service\impl\NotificationServiceImpl.java
+C:\my-projects\airline-notification-svc\src\main\java\com\projects\airline_notification_svc\service\NotificationService.java
+C:\my-projects\airline-notification-svc\src\main\java\com\projects\airline_notification_svc\service\PushNotificationService.java

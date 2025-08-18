@@ -1,0 +1,10 @@
+com\projects\airline_notification_svc\service\EmailService.class
+com\projects\airline_notification_svc\model\request\NotificationMessage.class
+com\projects\airline_notification_svc\consumer\KafkaConsumer.class
+com\projects\airline_notification_svc\service\PushNotificationService.class
+com\projects\airline_notification_svc\config\KafkaConsumerConfig.class
+com\projects\airline_notification_svc\model\request\GotifyRequest.class
+com\projects\airline_notification_svc\service\NotificationService.class
+com\projects\airline_notification_svc\service\impl\EmailServiceImpl.class
+com\projects\airline_notification_svc\AirlineNotificationSvcApplication.class
+com\projects\airline_notification_svc\service\impl\NotificationServiceImpl.class
