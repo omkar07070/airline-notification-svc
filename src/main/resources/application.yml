@@ -1,0 +1,44 @@
+
+server:
+  port: 8082
+
+spring:
+  application:
+    name: notification-service
+
+
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: notification-service
+     # When the service starts for the first time, it will read messages from the very beginning of the topic.
+      auto-offset-reset: earliest
+  # Deserializers for converting Kafka messages from bytes back into objects.
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer # For automatic JSON to POJO conversion
+   # Properties for the JsonDeserializer
+      properties:
+        spring:
+          json:
+        # contain the POJOs that can be deserialized.
+            trusted:
+              packages: "com.projects.notificationservice.dto"
+
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: your-email@gmail.com
+    password: your-gmail-app-password
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+notification:
+  engine:
+    gotify:
+      url: https://gotify.pussthecat.org/message
+      token: "Axxxxxxxxxxxxxx"
