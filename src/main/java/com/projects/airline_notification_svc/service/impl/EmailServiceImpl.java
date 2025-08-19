@@ -1,5 +1,6 @@
 package com.projects.airline_notification_svc.service.impl;
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,31 +10,20 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
-/**
- * Service dedicated to sending emails using Spring's JavaMailSender.
- * This component handles the construction and sending of simple text emails.
- * It is configured via application.yml.
- */
+
+@Slf4j
 @Service
 public class EmailServiceImpl {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(EmailServiceImpl.class);
 
-    // Spring's abstraction for sending emails. It's automatically configured
-    // by Spring Boot when 'spring-boot-starter-mail' is on the classpath.
+
     private final JavaMailSender mailSender;
 
     // The 'from' email address, injected from the application.yml file.
     // This ensures your sender email isn't hardcoded.
     private final String fromEmail;
 
-    /**
-     * Constructs the EmailService with required dependencies.
-     * Using constructor injection is a best practice.
-     *
-     * @param mailSender The auto-configured JavaMailSender bean.
-     * @param fromEmail  The sender's email address injected from properties.
-     */
+
     @Autowired
     public EmailServiceImpl(JavaMailSender mailSender, @Value("${spring.mail.username}") String fromEmail) {
         this.mailSender = mailSender;
@@ -70,7 +60,7 @@ public class EmailServiceImpl {
             // Send the email using the configured mail sender.
             mailSender.send(message);
 
-            LOGGER.info("Email sent successfully to {}", to);
+            log.info("Email sent successfully to {}", to);
 
         } catch (MailException e) {
             // Log any errors that occur. This is crucial for debugging production issues.

@@ -4,14 +4,14 @@ import com.projects.airline_notification_svc.model.request.NotificationMessage;
 import com.projects.airline_notification_svc.service.EmailService;
 import com.projects.airline_notification_svc.service.NotificationService;
 import com.projects.airline_notification_svc.service.PushNotificationService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+@Slf4j
 @Service
 public class NotificationServiceImpl {
-    private static final Logger LOGGER = LoggerFactory.getLogger(NotificationService.class);
 
     @Autowired
     private EmailServiceImpl emailService;
@@ -20,7 +20,7 @@ public class NotificationServiceImpl {
     private PushNotificationService pushNotificationService;
 
     public void processNotification(NotificationMessage message) {
-        LOGGER.info("Processing notification for transaction ID: {}", message.getTransactionId());
+        log.info("Processing notification for transaction ID: {}", message.getTransactionId());
 
         String formattedMessage = String.format(
                 "Hello %s, your booking for flight %s (Seat %s) has been confirmed. Transaction ID: %s.",

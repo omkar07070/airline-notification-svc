@@ -1,5 +1,6 @@
 package com.projects.airline_notification_svc.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +16,11 @@ import java.util.Map;
 /**
  * Service for sending push notifications by calling the Gotify API directly.
  */
+
+@Slf4j
 @Service
 public class PushNotificationService {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(PushNotificationService.class);
 
     @Autowired
     private RestTemplate restTemplate;
@@ -53,10 +55,10 @@ public class PushNotificationService {
             HttpEntity<Map<String, Object>> entity = new HttpEntity<>(requestBody, headers);
 
             restTemplate.postForEntity(urlWithToken, entity, String.class);
-            LOGGER.info("Successfully sent push notification directly to Gotify.");
+            log.info("Successfully sent push notification directly to Gotify.");
 
         } catch (Exception e) {
-            LOGGER.error("Failed to send push notification to Gotify. Error: {}", e.getMessage());
+            log.error("Failed to send push notification to Gotify. Error: {}", e.getMessage());
         }
     }
 }
